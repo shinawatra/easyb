@@ -73,7 +73,7 @@ function Header({
       </a>
 
       <button className="block md:hidden" onClick={toggle}>
-        <img src="icon-hamburger.svg" alt="Ham" className="h-6 w-8" />
+        <img src="icon-hamburger.svg" alt="Ham" className="h-7 w-8" />
       </button>
     </header>
   );
