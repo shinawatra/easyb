@@ -3,13 +3,24 @@ import { useEffect } from 'react';
 export default function Content({ display }: { display: boolean }) {
   useEffect(() => {
     const page = document.getElementById('page')!;
-
     if (display) {
       page.style.backgroundColor = '#9698a69f';
       page.style.transition = 'background 0.5s';
     } else {
       page.style.backgroundColor = '#f5f5f5';
     }
+
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        page.style.backgroundColor = '#f5f5f5';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
   }, [display]);
 
   return (
@@ -51,7 +62,7 @@ export default function Content({ display }: { display: boolean }) {
               className="w-full h-full block md:hidden"
             />
 
-            {!display ? (
+            {display ? (
               <img
                 src="image-mockups.png"
                 alt="Mockup"

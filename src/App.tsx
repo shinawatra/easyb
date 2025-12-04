@@ -5,9 +5,10 @@ import { useState } from 'react';
 
 function App() {
   const [display, setDisplay] = useState<boolean>(false);
+
   return (
     <>
-      <Header setDisplay={setDisplay} />
+      <Header display={display} setDisplay={setDisplay} />
       <Content display={display} />
       <Footer />
     </>
